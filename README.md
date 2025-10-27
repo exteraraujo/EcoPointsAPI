@@ -1,4 +1,5 @@
 EcoPoints API
+
 API simples em Spring Boot para registrar usuários e ações sustentáveis com pontuação.
 
 Como usar (local):
