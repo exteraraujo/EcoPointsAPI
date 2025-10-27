@@ -1,8 +1,8 @@
-EcoPoints API
+# EcoPoints API
 
 API simples em Spring Boot para registrar usuários e ações sustentáveis com pontuação.
 
-Como usar (local):
+## Como usar (local):
 
 Configurar o banco de dados PostgreSQL (application.properties já aponta para jdbc:postgresql://localhost:5432/ecopoints_db).
 Ajustar ecopoints.jwt.secret em src/main/resources/application.properties ou exportar como variável de ambiente nas configurações do Spring (ex.: -Decopoints.jwt.secret=...).
@@ -17,7 +17,7 @@ GET /api/acoes/minhas — listar ações do usuário autenticado
 GET /api/acoes/pontos — total de pontos do usuário autenticado
 Testando com Postman (passo a passo)
 
-Rodar a API localmente:
+## Rodar a API localmente:
 ./mvnw.cmd spring-boot:run
 Cadastrar um usuário (POST)
 URL: http://localhost:8080/api/usuarios/cadastrar
@@ -38,7 +38,7 @@ Body (JSON):
 }
 Resposta esperada: 200 OK com body { "token": "<JWT>" }. Copie o valor do token.
 
-Criar uma ação (POST) — use o token no header Authorization
+## Criar uma ação (POST) — use o token no header Authorization
 URL: http://localhost:8080/api/acoes/criar
 Headers: Authorization: Bearer <token> and Content-Type: application/json
 Body (JSON):
@@ -49,7 +49,7 @@ Body (JSON):
 }
 Resposta esperada: 200 OK com JSON da ação criada (campo pontos preenchido automaticamente pelo tipo).
 
-Listar ações do usuário (GET)
+## Listar ações do usuário (GET)
 URL: http://localhost:8080/api/acoes/minhas
 Header: Authorization: Bearer <token>
 Consultar pontos (GET)
@@ -57,7 +57,7 @@ URL: http://localhost:8080/api/acoes/pontos
 Header: Authorization: Bearer <token>
 Resposta esperada: { "pontos": 10 } (ou outro valor conforme ações registradas).
 
-Observações de segurança:
+## Observações de segurança:
 
 Não comitar segredos no repositório. Em src/main/resources/application.properties a propriedade ecopoints.jwt.secret está intencionalmente vazia no repositório.
 Como fornecer o segredo localmente (exemplos):
